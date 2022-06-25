@@ -20,7 +20,7 @@ let repetirBucleCantidad = false
 let repetirBucleCuotas = false
 let precioProducto
 let cantidadProducto
-let precioTotal = 0
+let precioProductoPorCantidad = 0
 let id
 let descuento
 let cuotas
@@ -127,7 +127,7 @@ do {
         repetirBucle = false
     }
 
-    precioTotal += multiplicarCantidad(precioProducto, cantidadProducto)
+    precioProductoPorCantidad += multiplicarCantidad(precioProducto, cantidadProducto)
     descuento = precioProducto * 15 / 100
 
 } while (repetirBucle);
@@ -180,15 +180,19 @@ do {
     }
 } while (repetirBucleCuotas);
 
+let precioCuotasSinDescuento 
+let precioCuotasConDescuento
+
 if (promptDescuento === true) {
     const totalDescuento = carritoDescuento.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
-    console.log(totalDescuento);
+    precioCuotasConDescuento = dividirCuotas(totalDescuento, cuotas)
+    alert(`Su coste final es de ${totalDescuento} en ${precioCuotasConDescuento}, muchas gracias por su compra.`)
 } else {
     const totalSinDescuento = Carrito.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
-    console.log(totalSinDescuento);
+    precioCuotasSinDescuento = dividirCuotas(totalSinDescuento, cuotas)
+    alert(`Su coste final es de ${totalSinDescuento} en ${precioCuotasSinDescuento}, muchas gracias por su compra.`)  
 }
 
-console.log(Carrito);
-console.log(carritoDescuento);
-console.log(cuotas);
+
+
 
