@@ -1,18 +1,18 @@
+//FUNCIONES
+
 const multiplicarCantidad = function (a, b) {
     return a * b
-}
-
-const sumaPrecio = function (a, b) {
-    return a + b
-}
-
-const restaDescuento = function (a, b) {
-    return a - b
 }
 
 const dividirCuotas = function (a, b) {
     return a / b
 }
+
+function pushCarrito(a, b) {
+    Carrito.push(a[b]);
+}
+
+//VARIABLE
 
 let repetirBucle = false;
 let repetirBucleProducto = false
@@ -26,17 +26,17 @@ let descuento
 let cuotas
 let carritoDescuento
 
+//ARRAY CARRITO
+const Carrito = []
+
+//ARRAY CATALOGO
 const Catalogo = [
     { nombre: "Harina", precio: 250 },
     { nombre: "Huevos", precio: 200 },
     { nombre: "Leche", precio: 100 }
 ]
 
-function pushCarrito(a, b) {
-    Carrito.push(a[b]);
-}
-
-const Carrito = []
+//INICIO DEL BUCLE
 
 do {
     do {
@@ -186,11 +186,11 @@ let precioCuotasConDescuento
 if (promptDescuento === true) {
     const totalDescuento = carritoDescuento.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
     precioCuotasConDescuento = dividirCuotas(totalDescuento, cuotas)
-    alert(`Su coste final es de ${totalDescuento} en ${precioCuotasConDescuento}, muchas gracias por su compra.`)
+    alert(`Su coste final es de ${totalDescuento} en ${cuotas} cuota/s de ${precioCuotasConDescuento} cada una, muchas gracias por su compra.`)
 } else {
     const totalSinDescuento = Carrito.reduce((acumulador, elemento) => acumulador + elemento.precio, 0)
     precioCuotasSinDescuento = dividirCuotas(totalSinDescuento, cuotas)
-    alert(`Su coste final es de ${totalSinDescuento} en ${precioCuotasSinDescuento}, muchas gracias por su compra.`)  
+    alert(`Su coste final es de ${totalSinDescuento} en ${cuotas} cuota/s de ${precioCuotasSinDescuento} cada una, muchas gracias por su compra.`)  
 }
 
 
